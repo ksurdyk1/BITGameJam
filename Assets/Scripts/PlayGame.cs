@@ -8,10 +8,12 @@ public class PlayGame : MonoBehaviour
     public Button button;
     [SerializeField] private Sprite soundOn;
     [SerializeField] private Sprite soundOff;
+    [SerializeField] private AudioListener audioListener;
 
     void Start () {
         button = GetComponent<Button>();
         button.image.sprite = soundOn;
+        AudioListener.pause = false;
     }
     public void Play()
     {
@@ -33,5 +35,6 @@ public class PlayGame : MonoBehaviour
         {
             button.image.sprite = soundOn;
         }
+        AudioListener.pause = !AudioListener.pause;
     }
 }
