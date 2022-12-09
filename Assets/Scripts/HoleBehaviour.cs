@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class HoleBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private EnemyBehaviour enemyPrefab;
+    [Range(0, 500)]
+    public int forceRange = 200;
+
+    
     void Start()
     {
         StartCoroutine(SpawnEnemy());
@@ -18,6 +24,10 @@ public class HoleBehaviour : MonoBehaviour
     
     IEnumerator SpawnEnemy()
     {
+        var enemy = Instantiate(enemyPrefab, transform.position, quaternion.identity);
+
+        var rand = Random.Range(-forceRange, forceRange);
+        enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(rand,0));
         Debug.Log("Spawned");
         yield return new WaitForSeconds(1f);
         StartCoroutine(SpawnEnemy());
