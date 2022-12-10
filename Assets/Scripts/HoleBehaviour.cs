@@ -28,7 +28,6 @@ public class HoleBehaviour : MonoBehaviour
 
         var rand = Random.Range(-forceRange, forceRange);
         enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(rand,0));
-        Debug.Log("Spawned");
         yield return new WaitForSeconds(3f);
         StartCoroutine(SpawnEnemy());
 

@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         positionLeft += moveDirectionLeft * moveSpeed * Time.deltaTime;
         positionRight += moveDirectionRight * moveSpeed * Time.deltaTime;
 
-        player1.position = positionLeft;
-        player2.position = positionRight;
+        player1.position = new Vector3(positionLeft.x,positionLeft.y, player1.position.z);
+        player2.position =  new Vector3(positionRight.x,positionRight.y, player2.position.z);
     }
 }
