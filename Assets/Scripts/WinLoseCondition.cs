@@ -14,14 +14,17 @@ public class WinLoseCondition : MonoBehaviour
     public void LosePoint()
     {
         hp--;
+
+        var x = Vector3.one* 0.1f;
+        Camera.current.DOShakePosition(1f, x, 10, 90f);
+        
         Debug.Log("Missed");
 
         if (hp < 1)
         {
             enemyCounter = null;
             Debug.Log("GameOver");
-            
-            
+
             fade.gameObject.SetActive(true);
             fade.DOFade(1, 3f).OnComplete(() =>
             {
