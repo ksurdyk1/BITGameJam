@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HolesManager : MonoBehaviour
 {
@@ -23,11 +24,28 @@ public class HolesManager : MonoBehaviour
             holesInactive[rngPointer].gameObject.SetActive(true);
             holesInactive.RemoveAt(rngPointer);
         }
+
+        foreach (HoleBehaviour hole in holesInactive)
+        {
+            allHoles.Remove(hole);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        bool isEnd = true;
+        foreach (HoleBehaviour hole in allHoles)
+        {
+            if (hole.holeState != HoleState.Healthy)
+            {
+                isEnd = false;
+            }
+        }
+
+        if (isEnd)
+        {
+            SceneManager.LoadScene("WonGame");
+        }
     }
 }
