@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DrillBehaviour : PickableBehaviour
 {
@@ -11,6 +12,8 @@ public class DrillBehaviour : PickableBehaviour
     private EnemyBehaviour currentEnemy;
 
     private Quaternion startRotation;
+
+   // public ParticleSystem particles;
     void Start()
     {
         startPos = transform.position;
@@ -30,9 +33,11 @@ public class DrillBehaviour : PickableBehaviour
                 SoundManager.Instance.drillSFX.loop = true;
                 triggerArea.gameObject.SetActive(true);
                 SoundManager.Instance.drillSFX.Play();
+                Gamepad.current.SetMotorSpeeds(0.5f,1);
 
                 transform.rotation = startRotation;
-
+               // particles.gameObject.SetActive(true);
+              //  particles.Play();
             }
             else if (isStartingToUse == UsingItem.InProgress)
             {
@@ -50,6 +55,10 @@ public class DrillBehaviour : PickableBehaviour
             }
             else if (isStartingToUse == UsingItem.OnEnd)
             {
+             //   particles.Pause();
+             //   particles.gameObject.SetActive(false);
+
+                Gamepad.current.SetMotorSpeeds(0,0);
 
                 SoundManager.Instance.drillSFX.Stop();
                 triggerArea.gameObject.SetActive(false);

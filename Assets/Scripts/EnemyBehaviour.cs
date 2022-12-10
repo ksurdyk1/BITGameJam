@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -24,12 +25,22 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void StartSucking(SuckerBehaviour sucker)
     {
-        Destroy(gameObject);
+        transform.GetComponent<SpriteRenderer>().DOFade(0, 0.5f).OnComplete(() =>
+            {
+                Destroy(gameObject);
+
+            }
+        );
     }
 
     public void StartSlashing(DrillBehaviour drill)
     {
-        Destroy(gameObject);
+        transform.GetComponent<SpriteRenderer>().DOFade(0, 0.5f).OnComplete(() =>
+            {
+                Destroy(gameObject);
+
+            }
+        );
     }
     
 }

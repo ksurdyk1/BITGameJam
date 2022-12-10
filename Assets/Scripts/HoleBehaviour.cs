@@ -4,6 +4,7 @@ using DG.Tweening;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
 
@@ -62,8 +63,9 @@ public class HoleBehaviour : MonoBehaviour
 
         if (drillProgress.x >= drillProgress.y)
         {
-            GetComponent<SpriteRenderer>().DOColor(Color.green, 0.1f);
-            GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f);
+            
+            GetComponent<SpriteRenderer>().DOColor(Color.green, 0.5f);
+            GetComponent<SpriteRenderer>().DOColor(Color.white, 0.5f);
             holeState = HoleState.Drilled;
             SoundManager.Instance.dropSFX.Play();
             Debug.Log("Drilled");
@@ -75,10 +77,12 @@ public class HoleBehaviour : MonoBehaviour
         fillerTransform.localScale += Vector3.one /2 * Time.deltaTime;
         fillProgress.x += Time.deltaTime;
 
+        fillerTransform.Rotate(0,0,1f);
+
         if (fillProgress.x >= fillProgress.y)
         {
-            fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.green, 0.1f);
-            fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f);
+            fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.red, 1.5f);
+            fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.white, 1.5f);
             holeState = HoleState.Filled;
             SoundManager.Instance.dropSFX.Play();
             Debug.Log("Filled");
