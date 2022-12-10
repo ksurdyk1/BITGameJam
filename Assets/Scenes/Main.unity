@@ -609,6 +609,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
       objectReference: {fileID: 0}
@@ -697,6 +701,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
@@ -1390,6 +1398,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
       objectReference: {fileID: 0}
@@ -1478,6 +1490,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
@@ -2333,6 +2349,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
       objectReference: {fileID: 0}
@@ -2486,6 +2506,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
@@ -3403,6 +3427,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
       objectReference: {fileID: 0}
@@ -3745,6 +3773,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
       objectReference: {fileID: 0}
@@ -3833,6 +3865,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
@@ -4652,6 +4688,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
@@ -6192,6 +6232,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874171377}
     m_Modifications:
+    - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
+      propertyPath: isDown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 430741706, guid: b911955124f820e4a95a2838f437b0f5, type: 3}
       propertyPath: forceRange
       value: 200
