@@ -14,6 +14,7 @@ public class SuckerBehaviour : PickableBehaviour
     {
         if (isStartingToUse)
         {
+            SoundManager.Instance.SuckerSFX.loop = true;
             SoundManager.Instance.SuckerSFX.Play();
         }
         else

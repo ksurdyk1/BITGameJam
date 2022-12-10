@@ -14,6 +14,9 @@ public class DrillBehaviour : PickableBehaviour
         Debug.Log("Borowanie");
         if (isStartingToUse)
         {
+            transform.DORotate(Vector3.forward * 30, 1f).Rewind();
+            SoundManager.Instance.drillSFX.loop = true;
+
             SoundManager.Instance.drillSFX.Play();
         }
         else
