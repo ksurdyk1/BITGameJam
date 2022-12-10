@@ -10,6 +10,7 @@ public class HolesManager : MonoBehaviour
     [SerializeField] private List<HoleBehaviour> allHoles;
     private List<HoleBehaviour> holesInactive = new List<HoleBehaviour>();
 
+    public Fader fade;
     void Start()
     {
         for (int i = 0; i < allHoles.Count; i++)
@@ -45,7 +46,7 @@ public class HolesManager : MonoBehaviour
 
         if (isEnd)
         {
-            SceneManager.LoadScene("WonGame");
+            fade.MakeFadeOut(2);
         }
     }
 }

@@ -58,7 +58,7 @@ public class HoleBehaviour : MonoBehaviour
     public void HoleDrill()
     {
         drillProgress.x += Time.deltaTime;
-        transform.localScale +=  Vector3.one* Time.deltaTime;
+        transform.localScale +=  Vector3.one* Time.deltaTime*0.1f;
 
         if (drillProgress.x >= drillProgress.y)
         {
@@ -92,16 +92,6 @@ public class HoleBehaviour : MonoBehaviour
             Debug.Log("UVed");
         }
     }
-
-    
-    
-    public void ProgressRepair()
-    {
-       
-
-        Debug.Log(holeState);
-    }
-    
     void Start()
     {
         StartCoroutine(SpawnEnemy());
@@ -112,7 +102,6 @@ public class HoleBehaviour : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
 
         var enemy = Instantiate(enemyPrefab, transform.position, quaternion.identity);
-        //enemy.transform.SetParent(transform);
         int rand = Random.Range(-forceRange, forceRange);
         int randY = 0;
         if (isDown)
@@ -124,6 +113,7 @@ public class HoleBehaviour : MonoBehaviour
         enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(rand,randY));
         cooldown = Random.Range(2, 6);
 
-        StartCoroutine(SpawnEnemy());
+        if(holeState == HoleState.Drilled && holeState == HoleState.Hole)
+            StartCoroutine(SpawnEnemy());
 
     }}

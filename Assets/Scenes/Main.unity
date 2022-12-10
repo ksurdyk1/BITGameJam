@@ -5358,7 +5358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfb5cba03e163c47889946d4e9170b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveHolesCount: 5
+  ActiveHolesCount: 3
   allHoles:
   - {fileID: 1276820894}
   - {fileID: 2133041926}
@@ -5384,6 +5384,7 @@ MonoBehaviour:
   - {fileID: 999071218}
   - {fileID: 612575749}
   - {fileID: 1921504805}
+  fade: {fileID: 969421970}
 --- !u!1 &1912851816
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,8 +5835,8 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   moveSpeed: 10
-  positionLeft: {x: 0, y: 0}
-  positionRight: {x: 0, y: 0}
+  positionLeft: {x: -5.54, y: 0}
+  positionRight: {x: 5.4, y: 0}
   player1: {fileID: 744177004}
   player2: {fileID: 1799796913}
 --- !u!4 &2089572641 stripped
