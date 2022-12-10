@@ -30,6 +30,12 @@ public class HolesManager : MonoBehaviour
         {
             allHoles.Remove(hole);
         }
+
+        foreach (var hole in allHoles)
+        {
+            hole.BeginSpawning();
+            Debug.Log(hole.holeState);
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +52,7 @@ public class HolesManager : MonoBehaviour
 
         if (isEnd)
         {
+            SoundManager.Instance.hahaSFX.Play();
             fade.MakeFadeOut(2);
         }
     }

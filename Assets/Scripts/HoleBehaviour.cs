@@ -94,7 +94,7 @@ public class HoleBehaviour : MonoBehaviour
     }
     void Start()
     {
-        StartCoroutine(SpawnEnemy());
+
     }
 
     IEnumerator SpawnEnemy()
@@ -113,7 +113,14 @@ public class HoleBehaviour : MonoBehaviour
         enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(rand,randY));
         cooldown = Random.Range(2, 6);
 
-        if(holeState == HoleState.Drilled && holeState == HoleState.Hole)
-            StartCoroutine(SpawnEnemy());
+        if (holeState == HoleState.Drilled || holeState == HoleState.Hole)
+            BeginSpawning();
 
-    }}
+    }
+
+    public void BeginSpawning()
+    {
+        StartCoroutine(SpawnEnemy());
+    }
+    
+}
