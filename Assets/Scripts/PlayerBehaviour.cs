@@ -49,7 +49,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (interact.triggered)
         {
-            Debug.Log("TRIGGERRRR");
             Interact();
         }
 
@@ -61,14 +60,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("added " +col.gameObject.name);
         overlappedObjects.Add(col.gameObject);
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("removed " + other.gameObject.name);
-
         overlappedObjects.Remove(other.gameObject);
     }
 }

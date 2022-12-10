@@ -4,7 +4,7 @@ using UnityEngine;
 public class PickableBehaviour : MonoBehaviour, IPickable
 {
     private Vector3 startPos;
-    public Transform player;
+    private Transform player;
     public bool isPicked { get; set; }
 
 
@@ -27,7 +27,7 @@ public class PickableBehaviour : MonoBehaviour, IPickable
 
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         Debug.Log("interact item");
     }
