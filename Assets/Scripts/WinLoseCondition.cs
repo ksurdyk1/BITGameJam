@@ -9,7 +9,6 @@ public class WinLoseCondition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyCounter.Al
     }
 
     // Update is called once per frame
