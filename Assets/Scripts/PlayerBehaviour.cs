@@ -9,13 +9,12 @@ public class PlayerBehaviour : MonoBehaviour
     public InputAction useItem;
     private IPickable heldItem;
 
-    private List<GameObject> overlappedObjects;
+    private List<GameObject> overlappedObjects =new List<GameObject>();
     void Start()
     {
         interact.Enable();
         dropItem.Enable();
         useItem.Enable();
-        overlappedObjects = new List<GameObject>();
     }
 
     void Interact()

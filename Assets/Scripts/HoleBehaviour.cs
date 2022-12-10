@@ -1,11 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
+
+public enum HoleState
+{
+    Hole,
+    Drilled,
+    Filled,
+    Healthy
+}
 public class HoleBehaviour : MonoBehaviour
 {
+    private HoleState holeState;
     [SerializeField] private EnemyBehaviour enemyPrefab;
     [Range(0, 500)]
     [SerializeField] private int forceRange = 200;
@@ -20,6 +31,15 @@ public class HoleBehaviour : MonoBehaviour
 
     [SerializeField] private List<Sprite> holeType;
 
+    public void setHoleState(HoleState newState)
+    {
+        holeState = newState;
+    }
+
+    public HoleState getHoleState()
+    {
+        return holeState;
+    }
     private void Awake()
     {
         cooldown = Random.Range(2, 6);

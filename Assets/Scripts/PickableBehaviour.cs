@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ public class PickableBehaviour : MonoBehaviour, IPickable
     private Transform player;
     public bool isPicked { get; set; }
 
+    protected HoleBehaviour currentHole;
 
+    
     private void Start()
     {
         startPos = transform.position;
@@ -44,4 +47,6 @@ public class PickableBehaviour : MonoBehaviour, IPickable
             transform.position = player.position;
         }
     }
+    
+    
 }

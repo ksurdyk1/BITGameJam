@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LampUVBehaviour : PickableBehaviour
 {
+   [SerializeField]
+   private Transform triggerArea;
    public override void Interact()
    {
       Debug.Log("UVing");
@@ -14,10 +16,12 @@ public class LampUVBehaviour : PickableBehaviour
       if (isStartingToUse)
       {
          SoundManager.Instance.UVLampSFX.Play();
+         triggerArea.gameObject.SetActive(true);
       }
       else
       {
          SoundManager.Instance.UVLampSFX.Stop();
+         triggerArea.gameObject.SetActive(false);
       }
    }
 }
