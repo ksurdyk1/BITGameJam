@@ -7,6 +7,7 @@ public class SuckerBehaviour : PickableBehaviour
      
     public override void Interact()
     {
+        SoundManager.Instance.SuckerSFX.Play();
         Debug.Log("Sucking");
     }
 }

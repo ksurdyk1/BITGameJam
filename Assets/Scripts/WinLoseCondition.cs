@@ -17,6 +17,12 @@ public class WinLoseCondition : MonoBehaviour
 
         var x = Vector3.one* 0.1f;
         Camera.current.DOShakePosition(1f, x, 10, 90f);
+
+        if (hp == 20)
+        {
+            Debug.Log("Zaczyna sie muza");
+            SoundManager.Instance.PlayExtraMusic();
+        }
         
         Debug.Log("Missed");
 

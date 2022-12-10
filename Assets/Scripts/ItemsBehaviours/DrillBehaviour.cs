@@ -6,6 +6,7 @@ public class DrillBehaviour : PickableBehaviour
 {
     public override void Interact()
     {
+        SoundManager.Instance.drillSFX.Play();
         Debug.Log("Borowanie");
     }
 }
