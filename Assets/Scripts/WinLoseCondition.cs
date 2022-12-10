@@ -30,7 +30,7 @@ public class WinLoseCondition : MonoBehaviour
             fade.gameObject.SetActive(true);
             fade.DOFade(1, 3f).OnComplete(() =>
             {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             });
         }
     }
