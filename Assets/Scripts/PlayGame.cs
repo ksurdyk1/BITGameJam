@@ -17,7 +17,7 @@ public class PlayGame : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void Quit()

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LostGame.unity
     guid: 628cc9c89dfb7754a9b9858f31932c03
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: bab0321c239f00647abaab231f5bd629
   m_configObjects: {}
