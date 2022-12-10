@@ -12,7 +12,7 @@ public class PlayGame : MonoBehaviour
 
     void Start () {
         button = GetComponent<Button>();
-        button.image.sprite = soundOn;
+       // button.image.sprite = soundOn;
         AudioListener.pause = false;
     }
     public void Play()
