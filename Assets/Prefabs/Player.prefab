@@ -159,6 +159,15 @@ MonoBehaviour:
       m_Action: Drop Item
       m_Flags: 0
     m_Flags: 0
+  useItem:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 40b7c894-0479-4362-9df0-9e55b8252568
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!50 &4009185440340829594
 Rigidbody2D:
   serializedVersion: 4
