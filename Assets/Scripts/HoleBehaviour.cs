@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
+using DG.Tweening;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -62,6 +62,8 @@ public class HoleBehaviour : MonoBehaviour
 
         if (drillProgress.x >= drillProgress.y)
         {
+            GetComponent<SpriteRenderer>().DOColor(Color.green, 0.1f);
+            GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f);
             holeState = HoleState.Drilled;
             Debug.Log("Drilled");
         }
@@ -74,6 +76,8 @@ public class HoleBehaviour : MonoBehaviour
 
         if (fillProgress.x >= fillProgress.y)
         {
+            fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.green, 0.1f);
+            fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f);
             holeState = HoleState.Filled;
             Debug.Log("Filled");
         }

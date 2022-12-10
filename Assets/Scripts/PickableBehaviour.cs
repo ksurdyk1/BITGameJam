@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PickableBehaviour : MonoBehaviour, IPickable
 {
-    private Vector3 startPos;
-    private Transform player;
+    protected Vector3 startPos;
+    protected Transform player;
     public bool isPicked { get; set; }
 
     protected HoleBehaviour currentHole;

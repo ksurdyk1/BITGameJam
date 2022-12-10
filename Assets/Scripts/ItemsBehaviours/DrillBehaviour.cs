@@ -13,6 +13,8 @@ public class DrillBehaviour : PickableBehaviour
     private Quaternion startRotation;
     void Start()
     {
+        startPos = transform.position;
+
         startRotation = transform.rotation;
     }
     public override void Interact()
