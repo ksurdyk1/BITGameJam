@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -28,6 +25,11 @@ public class PickableBehaviour : MonoBehaviour, IPickable
         isPicked = false;
         transform.DOMove(startPos, 1f).SetEase(Ease.InOutCubic);
 
+    }
+
+    public void Interact()
+    {
+        Debug.Log("interact item");
     }
 
     private void Update()

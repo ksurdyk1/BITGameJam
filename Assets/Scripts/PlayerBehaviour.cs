@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,9 +21,11 @@ public class PlayerBehaviour : MonoBehaviour
     void Interact()
     {
         if (heldItem != null)
+        {
+            heldItem.Interact();
             return;
-        
-        
+        }
+
         foreach (var item in overlappedObjects)
         {
             if(item.TryGetComponent(out IPickable pickable))
