@@ -65,6 +65,7 @@ public class HoleBehaviour : MonoBehaviour
             GetComponent<SpriteRenderer>().DOColor(Color.green, 0.1f);
             GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f);
             holeState = HoleState.Drilled;
+            SoundManager.Instance.dropSFX.Play();
             Debug.Log("Drilled");
         }
     }
@@ -79,6 +80,7 @@ public class HoleBehaviour : MonoBehaviour
             fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.green, 0.1f);
             fillerTransform. GetComponent<SpriteRenderer>().DOColor(Color.white, 0.1f);
             holeState = HoleState.Filled;
+            SoundManager.Instance.dropSFX.Play();
             Debug.Log("Filled");
         }
         
@@ -93,6 +95,7 @@ public class HoleBehaviour : MonoBehaviour
         if (UVProgress.x >= UVProgress.y)
         {
             holeState = HoleState.Healthy;
+            SoundManager.Instance.dropSFX.Play();
             Debug.Log("UVed");
         }
     }
