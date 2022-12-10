@@ -10,6 +10,11 @@ public class DrillBehaviour : PickableBehaviour
 
     private EnemyBehaviour currentEnemy;
 
+    private Quaternion startRotation;
+    void Start()
+    {
+        startRotation = transform.rotation;
+    }
     public override void Interact()
     {
     }
@@ -24,10 +29,12 @@ public class DrillBehaviour : PickableBehaviour
                 triggerArea.gameObject.SetActive(true);
                 SoundManager.Instance.drillSFX.Play();
 
-            
+                transform.rotation = startRotation;
+
             }
             else if (isStartingToUse == UsingItem.InProgress)
             {
+                transform.Rotate(0,0,Random.Range(-1f,1f));
                 if(currentHole != null)
                 {
                     Debug.Log("Do drill");
@@ -41,6 +48,7 @@ public class DrillBehaviour : PickableBehaviour
             }
             else if (isStartingToUse == UsingItem.OnEnd)
             {
+
                 SoundManager.Instance.drillSFX.Stop();
                 triggerArea.gameObject.SetActive(false);
             }
