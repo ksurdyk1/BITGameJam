@@ -11,17 +11,58 @@ public class FillerBehaviour : PickableBehaviour
         Debug.Log("Filling");
     }
 
-    public override void UseItem(bool isStartingToUse)
+    public override void UseItem(UsingItem isStartingToUse)
     {
-        if (isStartingToUse)
+
+            if (isStartingToUse == UsingItem.OnBegin)
+            {
+                SoundManager.Instance.FillSFX.Play(); 
+                triggerArea.gameObject.SetActive(true);
+            }
+            else if (isStartingToUse == UsingItem.InProgress)
+            {
+                Debug.Log("Nie mam itemu filler");
+
+                if(currentHole != null)
+                {
+                    Debug.Log("Mam filler");
+
+                    if (currentHole.holeState == HoleState.Drilled)
+                    {
+                        Debug.Log("Filluje");
+                        currentHole.HoleFill();
+
+
+                    }
+                }
+            }
+            else if (isStartingToUse == UsingItem.OnEnd)
+            {
+                SoundManager.Instance.FillSFX.Stop();
+                triggerArea.gameObject.SetActive(false);
+            }
+        
+       
+    }
+    
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.GetComponent<HoleBehaviour>() != null)
         {
-            SoundManager.Instance.FillSFX.Play(); 
-            triggerArea.gameObject.SetActive(true);
+            // Debug.Log("Entered " + col.name);
+            Debug.Log("Mam dziure");
+
+            currentHole = col.GetComponent<HoleBehaviour>();
         }
-        else
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+
+        if (other.GetComponent<HoleBehaviour>() != null)
         {
-            SoundManager.Instance.FillSFX.Stop();
-            triggerArea.gameObject.SetActive(false);
+            currentHole = null;
+
         }
     }
 }

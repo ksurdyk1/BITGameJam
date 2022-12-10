@@ -19,15 +19,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Interact()
     {
-        if (heldItem != null)
-        {
-            heldItem.Interact();
-            return;
-        }
-
         foreach (var item in overlappedObjects)
         {
-            if(item.TryGetComponent(out IPickable pickable) && !pickable.isPicked)
+            if(item.TryGetComponent(out IPickable pickable) && !pickable.isPicked && heldItem == null)
             {
                 pickable.PickUp(transform);
                 heldItem = pickable;
@@ -45,7 +39,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void UseItem(bool isStarting)
+    void UseItem(UsingItem isStarting)
     {
         if (heldItem != null)
         {
@@ -54,6 +48,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void Update()
     {
+        
         if (interact.triggered)
         {
             Interact();
@@ -66,11 +61,16 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (useItem.WasPressedThisFrame()) 
         {
-            UseItem(true);
+            UseItem(UsingItem.OnBegin);
         }
+        if (useItem.IsPressed()) 
+        {
+            UseItem(UsingItem.InProgress);
+        }
+        
         if (useItem.WasReleasedThisFrame()) 
         {
-            UseItem(false);
+            UseItem(UsingItem.OnEnd);
         }
     }
 

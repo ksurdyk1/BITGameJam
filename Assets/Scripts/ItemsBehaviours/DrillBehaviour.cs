@@ -8,34 +8,45 @@ public class DrillBehaviour : PickableBehaviour
     [SerializeField]
     private Transform triggerArea;
 
+    private EnemyBehaviour currentEnemy;
+
     public override void Interact()
     {
     }
 
-    public override void UseItem(bool isStartingToUse)
+    public override void UseItem(UsingItem isStartingToUse)
     {
-        Debug.Log("Borowanie");
-        if (isStartingToUse)
-        {
-            transform.DORotate(Vector3.forward * 30, 1f).Rewind();
-            SoundManager.Instance.drillSFX.loop = true;
-            triggerArea.gameObject.SetActive(true);
-            SoundManager.Instance.drillSFX.Play();
 
-            if(currentHole != null)
+            if (isStartingToUse == UsingItem.OnBegin)
             {
-                currentHole.gameObject.SetActive(false);
+                transform.DORotate(Vector3.forward * 30, 1f).Rewind();
+                SoundManager.Instance.drillSFX.loop = true;
+                triggerArea.gameObject.SetActive(true);
+                SoundManager.Instance.drillSFX.Play();
+
+            
             }
-          
-            
-            
-        }
-        else
-        {
-            SoundManager.Instance.drillSFX.Stop();
-            triggerArea.gameObject.SetActive(false);
-        }
-       // Camera.current.DOShakePosition(1f, new Vector3(0.1f, 0.1f, 0.1f), 10, 90f);
+            else if (isStartingToUse == UsingItem.InProgress)
+            {
+                if(currentHole != null)
+                {
+                    Debug.Log("Do drill");
+                    if( currentHole.holeState == HoleState.Hole)
+                        currentHole.HoleDrill();
+                }
+                else if (currentEnemy != null)
+                {
+                   currentEnemy.StartSlashing(this);
+                }
+            }
+            else if (isStartingToUse == UsingItem.OnEnd)
+            {
+                SoundManager.Instance.drillSFX.Stop();
+                triggerArea.gameObject.SetActive(false);
+            }
+            // Camera.current.DOShakePosition(1f, new Vector3(0.1f, 0.1f, 0.1f), 10, 90f);
+
+      
     }
     
  
@@ -43,10 +54,17 @@ public class DrillBehaviour : PickableBehaviour
     {
         if (col.GetComponent<HoleBehaviour>() != null)
         {
-            Debug.Log("Entered " + col.name);
+          // Debug.Log("Entered " + col.name);
 
             currentHole = col.GetComponent<HoleBehaviour>();
         }
+        else if (col.GetComponent<EnemyBehaviour>() != null)
+        {
+            Debug.Log("Entered " + col.name);
+
+            currentEnemy = col.GetComponent<EnemyBehaviour>();
+        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -54,7 +72,6 @@ public class DrillBehaviour : PickableBehaviour
 
         if (other.GetComponent<HoleBehaviour>() != null)
         {
-            Debug.Log("Exit " + other.name);
             currentHole = null;
 
         }

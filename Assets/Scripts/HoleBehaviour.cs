@@ -14,9 +14,16 @@ public enum HoleState
     Filled,
     Healthy
 }
+
+public enum UsingItem
+{
+    OnBegin,
+    InProgress,
+    OnEnd
+}
 public class HoleBehaviour : MonoBehaviour
 {
-    private HoleState holeState;
+    public HoleState holeState;
     [SerializeField] private EnemyBehaviour enemyPrefab;
     [Range(0, 500)]
     [SerializeField] private int forceRange = 200;
@@ -30,22 +37,70 @@ public class HoleBehaviour : MonoBehaviour
     [SerializeField] private float cooldown = 3f;
 
     [SerializeField] private List<Sprite> holeType;
+    [SerializeField] private Transform fillerTransform;
 
-    public void setHoleState(HoleState newState)
-    {
-        holeState = newState;
-    }
 
-    public HoleState getHoleState()
+    private Vector2 drillProgress;
+    private Vector2 fillProgress;
+    private Vector2 UVProgress;
+
+    void Awake()
     {
-        return holeState;
-    }
-    private void Awake()
-    {
+        drillProgress = new Vector2(0,2);
+        fillProgress = new Vector2(0, 2);
+        UVProgress = new Vector2(0,2);
+        
         cooldown = Random.Range(2, 6);
         GetComponent<SpriteRenderer>().sprite = holeType[Random.Range(0, holeType.Count)];
     }
 
+
+    public void HoleDrill()
+    {
+        drillProgress.x += Time.deltaTime;
+        transform.localScale +=  Vector3.one* Time.deltaTime;
+
+        if (drillProgress.x >= drillProgress.y)
+        {
+            holeState = HoleState.Drilled;
+            Debug.Log("Drilled");
+        }
+    }
+    
+    public void HoleFill()
+    {
+        fillerTransform.localScale += Vector3.one /2 * Time.deltaTime;
+        fillProgress.x += Time.deltaTime;
+
+        if (fillProgress.x >= fillProgress.y)
+        {
+            holeState = HoleState.Filled;
+            Debug.Log("Filled");
+        }
+        
+    }
+
+    private float helpBlue =1;
+    public void HoleUving()
+    {
+        helpBlue -= Time.deltaTime;
+        fillerTransform.GetComponent<SpriteRenderer>().color = new Color(1, 1, helpBlue, 1);
+        UVProgress.x += Time.deltaTime;
+        if (UVProgress.x >= UVProgress.y)
+        {
+            holeState = HoleState.Healthy;
+            Debug.Log("UVed");
+        }
+    }
+
+    
+    
+    public void ProgressRepair()
+    {
+       
+
+        Debug.Log(holeState);
+    }
     
     void Start()
     {
@@ -57,7 +112,7 @@ public class HoleBehaviour : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
 
         var enemy = Instantiate(enemyPrefab, transform.position, quaternion.identity);
-        enemy.transform.SetParent(transform);
+        //enemy.transform.SetParent(transform);
         int rand = Random.Range(-forceRange, forceRange);
         int randY = 0;
         if (isDown)

@@ -6,6 +6,6 @@ public interface IPickable
     void PickUp(Transform parent);
     void PickDown();
     void Interact();
-    void UseItem(bool isStartingToUse);
+    void UseItem(UsingItem isStartingToUse);
 
 }

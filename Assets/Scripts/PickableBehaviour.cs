@@ -35,7 +35,7 @@ public class PickableBehaviour : MonoBehaviour, IPickable
         Debug.Log("interact item");
     }
 
-    public virtual void UseItem(bool isStartingToUse)
+    public virtual void UseItem(UsingItem isStartingToUse)
     {
         Debug.Log("using item");
     }

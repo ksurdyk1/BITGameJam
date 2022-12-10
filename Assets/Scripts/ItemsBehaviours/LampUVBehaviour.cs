@@ -11,17 +11,47 @@ public class LampUVBehaviour : PickableBehaviour
       Debug.Log("UVing");
    }
 
-   public override void UseItem(bool isStartingToUse)
+   public override void UseItem(UsingItem isStartingToUse)
    {
-      if (isStartingToUse)
+ 
+         if (isStartingToUse == UsingItem.OnBegin)
+         {
+            SoundManager.Instance.UVLampSFX.Play();
+            triggerArea.gameObject.SetActive(true);
+         }
+         else if (isStartingToUse == UsingItem.InProgress)
+         {
+            if(currentHole != null)
+            {
+               if( currentHole.holeState == HoleState.Filled)
+                  currentHole.HoleUving();
+            }
+         }
+         else if (isStartingToUse == UsingItem.OnEnd)
+         {
+            SoundManager.Instance.UVLampSFX.Stop();
+            triggerArea.gameObject.SetActive(false);
+         }
+      
+   
+   }
+   private void OnTriggerEnter2D(Collider2D col)
+   {
+      if (col.GetComponent<HoleBehaviour>() != null)
       {
-         SoundManager.Instance.UVLampSFX.Play();
-         triggerArea.gameObject.SetActive(true);
+         // Debug.Log("Entered " + col.name);
+
+         currentHole = col.GetComponent<HoleBehaviour>();
       }
-      else
+   }
+
+   private void OnTriggerExit2D(Collider2D other)
+   {
+
+      if (other.GetComponent<HoleBehaviour>() != null)
       {
-         SoundManager.Instance.UVLampSFX.Stop();
-         triggerArea.gameObject.SetActive(false);
+         currentHole = null;
+
       }
    }
 }

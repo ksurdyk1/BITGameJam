@@ -21,4 +21,15 @@ public class EnemyBehaviour : MonoBehaviour
         var difV = transform.position - Vector3.left * Random.Range(0.1f,0.5f);
         GetComponent<Rigidbody2D>().AddForceAtPosition(Vector2.up* Random.Range(1.5f,2.5f), difV );
     }
+
+    public void StartSucking(SuckerBehaviour sucker)
+    {
+        Destroy(gameObject);
+    }
+
+    public void StartSlashing(DrillBehaviour drill)
+    {
+        Destroy(gameObject);
+    }
+    
 }
