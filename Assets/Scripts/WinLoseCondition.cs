@@ -26,7 +26,7 @@ public class WinLoseCondition : MonoBehaviour
         {
             enemyCounter = null;
             Debug.Log("GameOver");
-
+            SoundManager.Instance.deathSFX.Play();
             fade.gameObject.SetActive(true);
             fade.DOFade(1, 3f).OnComplete(() =>
             {
