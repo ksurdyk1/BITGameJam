@@ -1690,7 +1690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1024489027
 Transform:
   m_ObjectHideFlags: 0
@@ -2726,6 +2726,14 @@ PrefabInstance:
       value: RightPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_Id
+      value: 5744cd9f-baf5-41ac-bf95-f79cd59932e2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_Name
+      value: Use Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
       propertyPath: dropItem.m_SingletonActionBindings.Array.data[0].m_Path
       value: <Gamepad>/rightShoulder
       objectReference: {fileID: 0}
@@ -3730,6 +3738,34 @@ PrefabInstance:
     - target: {fileID: 4009185440340829569, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
       propertyPath: m_Name
       value: LeftPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_Id
+      value: c13dcb5b-0372-45a4-8424-43872e0ad4cd
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_Name
+      value: Use Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_SingletonActionBindings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_SingletonActionBindings.Array.data[0].m_Id
+      value: 91fb25ab-d7cd-40e9-9977-527d39031137
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_SingletonActionBindings.Array.data[0].m_Path
+      value: <Gamepad>/leftTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Use Item
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009185440340829573, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
+      propertyPath: useItem.m_SingletonActionBindings.Array.data[0].m_Interactions
+      value: Hold
       objectReference: {fileID: 0}
     - target: {fileID: 4009185440340829574, guid: e36ecf6863d0e034bb76ecb43b84b52e, type: 3}
       propertyPath: m_RootOrder

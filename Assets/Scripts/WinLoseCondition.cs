@@ -22,8 +22,6 @@ public class WinLoseCondition : MonoBehaviour
             SoundManager.Instance.PlayExtraMusic();
         }
         
-        Debug.Log("Missed");
-
         if (hp < 1)
         {
             enemyCounter = null;

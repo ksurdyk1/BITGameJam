@@ -65,7 +65,11 @@ public class PlayerBehaviour : MonoBehaviour
             DropItem();
         }
 
-        if (useItem.triggered)
+        if (useItem.WasPressedThisFrame()) 
+        {
+            UseItem();
+        }
+        if (useItem.WasReleasedThisFrame()) 
         {
             UseItem();
         }
