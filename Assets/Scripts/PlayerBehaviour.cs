@@ -6,7 +6,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public InputAction interact;
     public InputAction dropItem;
-
+    public InputAction useItem;
     private IPickable heldItem;
 
     private List<GameObject> overlappedObjects;
@@ -14,8 +14,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         interact.Enable();
         dropItem.Enable();
+        useItem.Enable();
         overlappedObjects = new List<GameObject>();
-        
     }
 
     void Interact()
@@ -45,16 +45,29 @@ public class PlayerBehaviour : MonoBehaviour
             heldItem = null;
         }
     }
+
+    void UseItem()
+    {
+        if (heldItem != null)
+        {
+            heldItem.UseItem();
+        }
+    }
     private void Update()
     {
         if (interact.triggered)
         {
             Interact();
         }
-
+        
         if (dropItem.triggered)
         {
             DropItem();
+        }
+
+        if (useItem.triggered)
+        {
+            UseItem();
         }
     }
 

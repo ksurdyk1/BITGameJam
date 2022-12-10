@@ -32,6 +32,11 @@ public class PickableBehaviour : MonoBehaviour, IPickable
         Debug.Log("interact item");
     }
 
+    public virtual void UseItem()
+    {
+        Debug.Log("using item");
+    }
+
     private void Update()
     {
         if (isPicked)
