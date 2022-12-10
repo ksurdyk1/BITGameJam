@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82f516d129104df4b8675a8f9d90c46c, type: 3}
   m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,3 +98,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 42441667698067323, guid: c397968ab6a67484eb9114ad7acaafc2, type: 3}
+  forceRange: 200
+  forceRangeY: 320
+  forceRangeDownX: 50
+  minForceDownY: 50
+  isDown: 0
+  cooldown: 3
+  holeType:
+  - {fileID: 21300000, guid: 82f516d129104df4b8675a8f9d90c46c, type: 3}
+  - {fileID: 21300000, guid: 1a65cdadbcf8de7419a07374c5647e03, type: 3}
+  - {fileID: 21300000, guid: 596967221d1d4584d93705111800a9ff, type: 3}
+  - {fileID: 21300000, guid: 1226051c6e828214f9add1643b80c5f9, type: 3}

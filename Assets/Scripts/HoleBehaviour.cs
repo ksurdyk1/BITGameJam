@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,6 +18,14 @@ public class HoleBehaviour : MonoBehaviour
     [SerializeField] private bool isDown = false;
     [SerializeField] private float cooldown = 3f;
 
+    [SerializeField] private List<Sprite> holeType;
+
+    private void Awake()
+    {
+        cooldown = Random.Range(2, 6);
+        GetComponent<SpriteRenderer>().sprite = holeType[Random.Range(0, holeType.Count)];
+    }
+
     
     void Start()
     {
@@ -25,6 +34,8 @@ public class HoleBehaviour : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
+        yield return new WaitForSeconds(cooldown);
+
         var enemy = Instantiate(enemyPrefab, transform.position, quaternion.identity);
         enemy.transform.SetParent(transform);
         int rand = Random.Range(-forceRange, forceRange);
@@ -36,7 +47,8 @@ public class HoleBehaviour : MonoBehaviour
         }
         
         enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(rand,randY));
-        yield return new WaitForSeconds(cooldown);
+        cooldown = Random.Range(2, 6);
+
         StartCoroutine(SpawnEnemy());
 
     }}
