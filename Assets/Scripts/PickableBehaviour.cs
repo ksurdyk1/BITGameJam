@@ -32,7 +32,7 @@ public class PickableBehaviour : MonoBehaviour, IPickable
         Debug.Log("interact item");
     }
 
-    public virtual void UseItem()
+    public virtual void UseItem(bool isStartingToUse)
     {
         Debug.Log("using item");
     }

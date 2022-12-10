@@ -46,11 +46,11 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void UseItem()
+    void UseItem(bool isStarting)
     {
         if (heldItem != null)
         {
-            heldItem.UseItem();
+            heldItem.UseItem(isStarting);
         }
     }
     private void Update()
@@ -67,11 +67,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (useItem.WasPressedThisFrame()) 
         {
-            UseItem();
+            UseItem(true);
         }
         if (useItem.WasReleasedThisFrame()) 
         {
-            UseItem();
+            UseItem(false);
         }
     }
 

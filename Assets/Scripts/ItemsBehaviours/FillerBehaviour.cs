@@ -9,8 +9,15 @@ public class FillerBehaviour : PickableBehaviour
         Debug.Log("Filling");
     }
 
-    public override void UseItem()
+    public override void UseItem(bool isStartingToUse)
     {
-        SoundManager.Instance.FillSFX.Play();
+        if (isStartingToUse)
+        {
+            SoundManager.Instance.FillSFX.Play(); 
+        }
+        else
+        {
+            SoundManager.Instance.FillSFX.Stop();
+        }
     }
 }
