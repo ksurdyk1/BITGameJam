@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class WinLoseCondition : MonoBehaviour
 {
+    [SerializeField] private int hp = 10;
+    private EnemyLimitBehaviour enemyCounter;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemyCounter.Al
     }
 
     // Update is called once per frame
