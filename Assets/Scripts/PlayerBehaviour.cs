@@ -28,7 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         foreach (var item in overlappedObjects)
         {
-            if(item.TryGetComponent(out IPickable pickable))
+            if(item.TryGetComponent(out IPickable pickable) && !pickable.isPicked)
             {
                 pickable.PickUp(transform);
                 heldItem = pickable;
