@@ -20,6 +20,7 @@ public class HoleBehaviour : MonoBehaviour
     IEnumerator SpawnEnemy()
     {
         var enemy = Instantiate(enemyPrefab, transform.position, quaternion.identity);
+        enemy.transform.SetParent(transform);
         var rand = Random.Range(-forceRange, forceRange);
         enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(rand,0));
         yield return new WaitForSeconds(cooldown);
