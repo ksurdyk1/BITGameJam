@@ -6,21 +6,15 @@ using UnityEngine.Events;
 
 public class EnemyLimitBehaviour : MonoBehaviour
 {
-    public UnityEvent eventLost = new UnityEvent();
+    [SerializeField] private WinLoseCondition loseCondition;
 
-
-    private void Start()
-    {
-        eventLost.AddListener(LosePoint);
-    }
+ 
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+        loseCondition.LosePoint();
         Destroy(col.gameObject);
     }
 
-    void LosePoint()
-    {
-        
-    }
+    
 }
