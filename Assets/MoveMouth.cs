@@ -11,7 +11,7 @@ public class MoveMouth : MonoBehaviour
     void Start()
     {
         transform.DOLocalMove(new Vector3(0, powerOffset, 0), 1f).SetLoops(-1, LoopType.Yoyo);
-        transform.DOScale(new Vector3(0, 0.9397472f + powerScale, 0), 1f).SetLoops(-1, LoopType.Yoyo);
+       // transform.DOScale(new Vector3(0, 0.9397472f + powerScale, 0), 1f).SetLoops(-1, LoopType.Yoyo);
 
     }
 
