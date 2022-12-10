@@ -9,8 +9,15 @@ public class LampUVBehaviour : PickableBehaviour
       Debug.Log("UVing");
    }
 
-   public override void UseItem()
+   public override void UseItem(bool isStartingToUse)
    {
-      SoundManager.Instance.UVLampSFX.Play();
+      if (isStartingToUse)
+      {
+         SoundManager.Instance.UVLampSFX.Play();
+      }
+      else
+      {
+         SoundManager.Instance.UVLampSFX.Stop();
+      }
    }
 }

@@ -10,8 +10,16 @@ public class SuckerBehaviour : PickableBehaviour
         Debug.Log("Sucking");
     }
 
-    public override void UseItem()
+    public override void UseItem(bool isStartingToUse)
     {
-        SoundManager.Instance.SuckerSFX.Play();
+        if (isStartingToUse)
+        {
+            SoundManager.Instance.SuckerSFX.Play();
+        }
+        else
+        {
+            SoundManager.Instance.SuckerSFX.Stop();
+        }
+        
     }
 }
