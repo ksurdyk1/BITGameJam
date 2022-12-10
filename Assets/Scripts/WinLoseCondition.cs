@@ -7,7 +7,7 @@ public class WinLoseCondition : MonoBehaviour
     [SerializeField] private int hp = 2;
     private EnemyLimitBehaviour enemyCounter;
 
-    [SerializeField] private SpriteRenderer fade;
+    [SerializeField] private Fader fade;
 
     public void LosePoint()
     {
@@ -27,11 +27,8 @@ public class WinLoseCondition : MonoBehaviour
             enemyCounter = null;
             Debug.Log("GameOver");
             SoundManager.Instance.deathSFX.Play();
-            fade.gameObject.SetActive(true);
-            fade.DOFade(1, 3f).OnComplete(() =>
-            {
-                SceneManager.LoadScene(3);
-            });
+            fade.MakeFadeOut(3);
+           
         }
     }
     

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PickableBehaviour : MonoBehaviour, IPickable
@@ -18,7 +19,7 @@ public class PickableBehaviour : MonoBehaviour, IPickable
 
     public void PickUp(Transform parent)
     {
-        DOTween.KillAll();
+        //DOTween.Kill(DOTween);
         isPicked = true;
         player = parent;
     }
